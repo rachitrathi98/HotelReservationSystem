@@ -24,6 +24,5 @@ namespace HotelReservation
             this.ratesRegular = ratesRegular;
             this.customerType = customerType;
         }
-
     }
 }

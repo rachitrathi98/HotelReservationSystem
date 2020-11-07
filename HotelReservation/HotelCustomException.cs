@@ -12,7 +12,6 @@ namespace HotelReservation
         {
             INVALID_HOTEL_NAME, INVALID_DATE, INVALID_CUSTOMER_TYPE
         }
-
         public HotelCustomException(ExceptionType type, string msg) : base(msg)
         {
             this.type = type;

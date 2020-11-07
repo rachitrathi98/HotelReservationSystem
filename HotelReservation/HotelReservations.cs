@@ -63,7 +63,6 @@ namespace HotelReservation
                             rateOfRidge += 40;
                         }
                     }
-
                     else
                     {
                         if (type.Equals("Regular"))
