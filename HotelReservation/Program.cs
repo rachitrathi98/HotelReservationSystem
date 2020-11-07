@@ -13,6 +13,8 @@ namespace HotelReservation
             hotelReservation.AddHotel("Lakewood", 110);
             hotelReservation.AddHotel("Bridgewood", 160);
             hotelReservation.AddHotel("Ridgewood", 220);
+            //Find Cheapest Hotel
+            hotelReservation.FindCheapestHotel();
 
         }
     }
