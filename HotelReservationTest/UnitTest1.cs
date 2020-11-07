@@ -34,7 +34,7 @@ namespace HotelReservationTest
         /// TC6: Finds the cheapestand best rated hotel for given date.
         /// </summary>
         [TestMethod]
-        public void FindCheapestandBestRatedHotelForGivenDate_TC2()
+        public void FindCheapestandBestRatedHotelForGivenDate()
         {
             DateTime start = DateTime.Parse("11/09/2020");
             DateTime end = DateTime.Parse("12/09/2020");
@@ -56,7 +56,7 @@ namespace HotelReservationTest
         /// TC7: Finds the best rated hotel for given date t c2.
         /// </summary>
         [TestMethod]
-        public void FindBestRatedHotelForGivenDate_TC2()
+        public void FindBestRatedHotelForGivenDate()
         {
             DateTime start = DateTime.Parse("11/09/2020");
             DateTime end = DateTime.Parse("12/09/2020");
@@ -66,6 +66,27 @@ namespace HotelReservationTest
             int actualRate = 0;
             HotelReservations reservation = new HotelReservations();
             Dictionary<string, int> hotel = reservation.FindCheapestandBestRatedHotel("Regular", start, end);
+            foreach (KeyValuePair<string, int> kv in hotel)
+            {
+                actualHotel = kv.Key;
+                actualRate = kv.Value;
+            }
+            Assert.AreEqual(expectedHotel, actualHotel);
+            Assert.AreEqual(expectedRate, actualRate);
+        }
+        /// <summary>
+        /// TC 10: Finds the cheapest and best rated hotel for given date in reward category.
+        /// </summary>
+        public void FindCheapestandBestRatedHotelForGivenDateReward()
+        {
+            DateTime start = DateTime.Parse("11/09/2020");
+            DateTime end = DateTime.Parse("12/09/2020");
+            string expectedHotel = "Ridgewood";
+            int expectedRate = 140;
+            string actualHotel = "";
+            int actualRate = 0;
+            HotelReservations reservation = new HotelReservations();
+            Dictionary<string, int> hotel = reservation.FindCheapestandBestRatedHotelReward("Rewards", start, end);
             foreach (KeyValuePair<string, int> kv in hotel)
             {
                 actualHotel = kv.Key;

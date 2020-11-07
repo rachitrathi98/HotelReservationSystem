@@ -253,6 +253,90 @@ namespace HotelReservation
             }
             return best;
         }
+        /// <summary>
+        /// UC 10: Finds the cheapestand best rated hotel in the reward category.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="end">The end.</param>
+        /// <returns></returns>
+        public Dictionary<string, int> FindCheapestandBestRatedHotelReward(string type, DateTime start, DateTime end)
+        {
+            Dictionary<string, int> rateRecord = new Dictionary<string, int>();
+            start = DateTime.Parse(Console.ReadLine());
+            end = DateTime.Parse(Console.ReadLine());
+
+            int rateOfLake = 0;
+            int rateOfBridge = 0;
+            int rateOfRidge = 0;
+            if (start > end)
+            {
+                Console.WriteLine("Enter the date properly");
+            }
+            TimeSpan diff = end - start;
+            int days = diff.Days;
+            for (var i = 0; i <= days; i++)
+            {
+                var testDate = start.AddDays(i);
+                if (testDate.DayOfWeek == DayOfWeek.Saturday || testDate.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    if (type.Equals("Regular"))
+                    {
+                        rateOfLake += 90;
+                        rateOfBridge += 60;
+                        rateOfRidge += 150;
+                    }
+
+                    else
+                    {
+                        rateOfLake += 80;
+                        rateOfBridge += 50;
+                        rateOfRidge += 40;
+                    }
+                }
+                else
+                {
+                    if (type.Equals("Regular"))
+                    {
+                        rateOfLake += 110;
+                        rateOfBridge += 160;
+                        rateOfRidge += 220;
+                    }
+                    else
+                    {
+                        rateOfLake += 80;
+                        rateOfBridge += 110;
+                        rateOfRidge += 100;
+                    }
+                }
+            }
+            rateRecord.Add("Lakewood", rateOfLake);
+            rateRecord.Add("Bridgewood", rateOfBridge);
+            rateRecord.Add("Ridgewood", rateOfRidge);
+            int min = rateRecord.Select(x => x.Value).Min();
+            Dictionary<string, int> cheap = new Dictionary<string, int>();
+
+            foreach (KeyValuePair<string, int> kv in rateRecord)
+            {
+                if (kv.Value == min)
+                {
+                    if (kv.Key.Equals("Ridgewood"))
+                    {
+                        cheap.Add(kv.Key, kv.Value);
+                    }
+                    else if (kv.Key.Equals("Bridgewood"))
+                    {
+                        cheap.Add(kv.Key, kv.Value);
+                    }
+                    else if (kv.Key.Equals("Lakewood"))
+                    {
+                        cheap.Add(kv.Key, kv.Value);
+                    }
+                }
+            }
+            return cheap;
+        }
+
     }
-    }
+}
 
