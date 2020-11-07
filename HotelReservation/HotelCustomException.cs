@@ -16,6 +16,5 @@ namespace HotelReservation
         {
             this.type = type;
         }
-
     }
 }

@@ -20,8 +20,7 @@ namespace HotelReservationTest
             int expectedRate = 220;
             string actualHotel = "";
             int actualRate = 0;
-            try
-            {
+          
                 HotelReservations reservation = new HotelReservations();
                 Dictionary<string, int> hotel = reservation.FindCheapestHotel("Regular", start, end);
                 foreach (KeyValuePair<string, int> kv in hotel)
@@ -30,13 +29,7 @@ namespace HotelReservationTest
                     actualRate = kv.Value;
                 }
                   Assert.AreEqual(expectedHotel, actualHotel);
-                Assert.AreEqual(expectedRate, actualRate);
-            }
-            catch (HotelCustomException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
+                Assert.AreEqual(expectedRate, actualRate);    
         }
     }
 }

@@ -94,6 +94,5 @@ namespace HotelReservation
                 }
             return cheapHotel;
         }
-
     }
 }
