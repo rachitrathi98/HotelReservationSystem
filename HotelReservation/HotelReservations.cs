@@ -27,12 +27,12 @@ namespace HotelReservation
         /// <summary>
         /// UC2: Finds the cheapest hotel.
         /// </summary>
-        public Dictionary<string, int> FindCheapestHotel(string type, DateTime start, DateTime end)
+        public Dictionary<string, int> FindCheapestHotel(string type, string startdate, string enddate)
         {
             Dictionary<string, int> rateRecord = new Dictionary<string, int>();
-                start = DateTime.Parse(Console.ReadLine());
-                end = DateTime.Parse(Console.ReadLine());
-
+                DateTime start = DateTime.Parse(startdate);
+                DateTime end = DateTime.Parse(enddate);
+            
                     int rateOfLake = 0;
                     int rateOfBridge = 0;
                     int rateOfRidge = 0;
@@ -42,7 +42,7 @@ namespace HotelReservation
                     }
                     TimeSpan diff = end - start;
                     int days = diff.Days;
-                for (var i = 0; i <= days; i++)
+                for (var i = 0; i <=days; i++)
                 {
                     var testDate = start.AddDays(i);
                     if (testDate.DayOfWeek == DayOfWeek.Saturday || testDate.DayOfWeek == DayOfWeek.Sunday)
@@ -93,11 +93,12 @@ namespace HotelReservation
 
             return cheap;
         }
-        public Dictionary<string, int> FindCheapestandBestRatedHotel(string type, DateTime start, DateTime end)
+        public Dictionary<string, int> FindCheapestandBestRatedHotel(string type, string startdate, string enddate)
         {
             Dictionary<string, int> rateRecord = new Dictionary<string, int>();
-            start = DateTime.Parse(Console.ReadLine());
-            end = DateTime.Parse(Console.ReadLine());
+            DateTime start = DateTime.Parse(startdate);
+            DateTime end = DateTime.Parse(enddate);
+
 
             int rateOfLake = 0;
             int rateOfBridge = 0;
@@ -177,11 +178,11 @@ namespace HotelReservation
         /// <param name="start">The start.</param>
         /// <param name="end">The end.</param>
         /// <returns></returns>
-        public Dictionary<string, int> FindBestRatedHotel(string type, DateTime start, DateTime end)
+        public Dictionary<string, int> FindBestRatedHotel(string type, string startdate, string enddate)
         {
             Dictionary<string, int> rateRecord = new Dictionary<string, int>();
-            start = DateTime.Parse(Console.ReadLine());
-            end = DateTime.Parse(Console.ReadLine());
+            DateTime start = DateTime.Parse(startdate);
+            DateTime end = DateTime.Parse(enddate);
 
             int rateOfLake = 0;
             int rateOfBridge = 0;
@@ -260,11 +261,11 @@ namespace HotelReservation
         /// <param name="start">The start.</param>
         /// <param name="end">The end.</param>
         /// <returns></returns>
-        public Dictionary<string, int> FindCheapestandBestRatedHotelReward(string type, DateTime start, DateTime end)
+        public Dictionary<string, int> FindCheapestandBestRatedHotelReward(string type, string startdate, string enddate)
         {
             Dictionary<string, int> rateRecord = new Dictionary<string, int>();
-            start = DateTime.Parse(Console.ReadLine());
-            end = DateTime.Parse(Console.ReadLine());
+            DateTime start = DateTime.Parse(startdate);
+            DateTime end = DateTime.Parse(enddate);
 
             int rateOfLake = 0;
             int rateOfBridge = 0;

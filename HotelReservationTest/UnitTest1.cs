@@ -14,10 +14,10 @@ namespace HotelReservationTest
         [TestMethod]
         public void FindCheapestHotelForGivenDate()
         {
-            DateTime start = DateTime.Parse("11/09/2020");
-            DateTime end = DateTime.Parse("12/09/2020");
+            string start = "11/09/2020";
+            string end = "12/09/2020";
             string expectedHotel = "Lakewood";
-            int expectedRate = 200;
+            int expectedRate = 220;
             string actualHotel = "";
             int actualRate = 0;
                 HotelReservations reservation = new HotelReservations();
@@ -36,8 +36,8 @@ namespace HotelReservationTest
         [TestMethod]
         public void FindCheapestandBestRatedHotelForGivenDate()
         {
-            DateTime start = DateTime.Parse("11/09/2020");
-            DateTime end = DateTime.Parse("12/09/2020");
+            string start = "11/09/2020";
+            string end = "12/09/2020";
             string expectedHotel = "Bridgewood";
             int expectedRate = 200;
             string actualHotel = "";
@@ -58,14 +58,14 @@ namespace HotelReservationTest
         [TestMethod]
         public void FindBestRatedHotelForGivenDate()
         {
-            DateTime start = DateTime.Parse("11/09/2020");
-            DateTime end = DateTime.Parse("12/09/2020");
+            string start = "11/09/2020";
+            string end = "12/09/2020";
             string expectedHotel = "Ridgewood";
             int expectedRate = 370;
             string actualHotel = "";
             int actualRate = 0;
             HotelReservations reservation = new HotelReservations();
-            Dictionary<string, int> hotel = reservation.FindCheapestandBestRatedHotel("Regular", start, end);
+            Dictionary<string, int> hotel = reservation.FindBestRatedHotel("Regular", start, end);
             foreach (KeyValuePair<string, int> kv in hotel)
             {
                 actualHotel = kv.Key;
@@ -77,10 +77,11 @@ namespace HotelReservationTest
         /// <summary>
         /// TC 10: Finds the cheapest and best rated hotel for given date in reward category.
         /// </summary>
+        [TestMethod]
         public void FindCheapestandBestRatedHotelForGivenDateReward()
         {
-            DateTime start = DateTime.Parse("11/09/2020");
-            DateTime end = DateTime.Parse("12/09/2020");
+            string start = "11/09/2020";
+            string end = "12/09/2020";
             string expectedHotel = "Ridgewood";
             int expectedRate = 140;
             string actualHotel = "";
