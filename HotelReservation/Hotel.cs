@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace HotelReservation
@@ -40,6 +41,30 @@ namespace HotelReservation
         /// </summary>
         public Hotel()
         { 
+        }
+        /// <summary>
+        /// Finds rate of stay from startdate to end date at hotel
+        /// </summary>
+        /// <param name="startDateString"></param>
+        /// <param name="endDateString"></param>
+        /// <returns>rate of stay</returns>
+        public double FindRate(string startDateString, string endDateString)
+        {
+            double rate = 0;
+            try
+            {
+                DateTime startDate = Convert.ToDateTime(startDateString);
+                DateTime endDate = Convert.ToDateTime(endDateString);
+                for (; startDate <= endDate; startDate = startDate.AddDays(1))
+                {
+                    rate = rate + RATE;
+                }
+            }
+            catch (Exception)
+            {
+                throw new HotelReservationException(HotelReservationException.ExceptionType.INVALID_DATE, "Invalid date entered");
+            }
+            return rate;
         }
     }
 }
