@@ -52,6 +52,28 @@ namespace HotelReservationTest
             Assert.AreEqual(expectedHotel, actualHotel);
             Assert.AreEqual(expectedRate, actualRate);
         }
+        /// <summary>
+        /// TC7: Finds the best rated hotel for given date t c2.
+        /// </summary>
+        [TestMethod]
+        public void FindBestRatedHotelForGivenDate_TC2()
+        {
+            DateTime start = DateTime.Parse("11/09/2020");
+            DateTime end = DateTime.Parse("12/09/2020");
+            string expectedHotel = "Ridgewood";
+            int expectedRate = 370;
+            string actualHotel = "";
+            int actualRate = 0;
+            HotelReservations reservation = new HotelReservations();
+            Dictionary<string, int> hotel = reservation.FindCheapestandBestRatedHotel("Regular", start, end);
+            foreach (KeyValuePair<string, int> kv in hotel)
+            {
+                actualHotel = kv.Key;
+                actualRate = kv.Value;
+            }
+            Assert.AreEqual(expectedHotel, actualHotel);
+            Assert.AreEqual(expectedRate, actualRate);
+        }
 
     }
 }
