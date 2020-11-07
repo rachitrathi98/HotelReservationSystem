@@ -17,7 +17,6 @@ namespace HotelReservation
             hotelReservation.AddHotel("Bridgewood", 110, 4, "Rewards");
             hotelReservation.AddHotel("Ridgewood", 100, 5, "Rewards");
        
-
         }
     }
 }

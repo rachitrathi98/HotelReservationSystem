@@ -20,7 +20,6 @@ namespace HotelReservationTest
             int expectedRate = 220;
             string actualHotel = "";
             int actualRate = 0;
-          
                 HotelReservations reservation = new HotelReservations();
                 Dictionary<string, int> hotel = reservation.FindCheapestHotel("Regular", start, end);
                 foreach (KeyValuePair<string, int> kv in hotel)
