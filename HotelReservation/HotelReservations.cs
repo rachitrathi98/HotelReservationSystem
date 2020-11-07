@@ -83,16 +83,16 @@ namespace HotelReservation
                 rateRecord.Add("Bridgewood", rateOfBridge);
                 rateRecord.Add("Ridgewood", rateOfRidge);
                 int min = rateRecord.Select(x => x.Value).Min();
-                Dictionary<string, int> cheapHotel = new Dictionary<string, int>();
+                Dictionary<string, int> cheap = new Dictionary<string, int>();
 
                 foreach (KeyValuePair<string, int> kv in rateRecord)
                 {
                     if (kv.Value == min)
                     {
-                        cheapHotel.Add(kv.Key, kv.Value);
+                        cheap.Add(kv.Key, kv.Value);
                     }
                 }
-            return cheapHotel;
+            return cheap;
         }
     }
 }
